@@ -125,6 +125,7 @@ void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 			ll1 -> size++;
 
 			current1 = temp -> next;
+			// 필요없는  로직
 			// if(current1 != NULL){
 			// 	current1 = current1 -> next;
 			// }
