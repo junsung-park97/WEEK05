@@ -90,41 +90,41 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	// // 1. NULL 체크
-    // if (ll == NULL) {
-    //     return -1;
-    // }
+	// 1. NULL 체크
+    if (ll == NULL) {
+        return -1;
+    }
     
-    // // 2. 빈 리스트이거나 맨 앞에 삽입해야 하는 경우
-    // if (ll->head == NULL || item < ll->head->item) {
-    //     // insertNode 함수를 사용하여 인덱스 0에 삽입
-    //     if (insertNode(ll, 0, item) == 0) {
-    //         return 0;  // 첫 번째 위치에 삽입 성공
-    //     }
-    //     return -1;  // 삽입 실패
-    // }
+    // 2. 빈 리스트이거나 맨 앞에 삽입해야 하는 경우
+    if (ll->head == NULL || item < ll->head->item) {
+        // insertNode 함수를 사용하여 인덱스 0에 삽입
+        if (insertNode(ll, 0, item) == 0) {
+            return 0;  // 첫 번째 위치에 삽입 성공
+        }
+        return -1;  // 삽입 실패
+    }
     
-    // // 3. 삽입할 위치 찾기 및 중복 검사
-    // ListNode *current = ll->head;
-    // int index = 0;
+    // 3. 삽입할 위치 찾기 및 중복 검사
+    ListNode *current = ll->head;
+    int index = 0;
     
-    // // 현재 노드가 삽입할 값보다 작은 동안 계속 진행
-    // while (current != NULL && current->item < item) {
-    //     current = current->next;
-    //     index++;
-    // }
+    // 현재 노드가 삽입할 값보다 작은 동안 계속 진행
+    while (current != NULL && current->item < item) {
+        current = current->next;
+        index++;
+    }
     
-    // // 4. 중복 검사 - 같은 값이 이미 존재하면 -1 반환
-    // if (current != NULL && current->item == item) {
-    //     return -1;  // 중복값 발견, 삽입하지 않음
-    // }
+    // 4. 중복 검사 - 같은 값이 이미 존재하면 -1 반환
+    if (current != NULL && current->item == item) {
+        return -1;  // 중복값 발견, 삽입하지 않음
+    }
     
-    // // 5. 적절한 위치에 삽입
-    // if (insertNode(ll, index, item) == 0) {
-    //     return index;  // 삽입된 인덱스 반환
-    // }
+    // 5. 적절한 위치에 삽입
+    if (insertNode(ll, index, item) == 0) {
+        return index;  // 삽입된 인덱스 반환
+    }
     
-    // return -1;  // 삽입 실패
+    return -1;  // 삽입 실패
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
