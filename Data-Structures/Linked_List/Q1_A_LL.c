@@ -19,7 +19,7 @@ typedef struct _listnode{
 typedef struct _linkedlist{
 	int size;
 	ListNode *head;
-} LinkedList;			// You should not change the definition of LinkedList
+} LinkedList;		// You should not change the definition of LinkedList
 
 
 ///////////////////////// function prototypes ////////////////////////////////////
