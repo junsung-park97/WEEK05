@@ -91,26 +91,35 @@ void moveOddItemsToBack(LinkedList *ll)
 	}
 
 	ListNode* perv = ll -> head;
-	ListNode* curItem = ll -> head -> item;
 	ListNode* cur = ll -> head;
 	ListNode* tail = ll -> head;
 
-	while(ll){
-		if(cur -> next == NULL){
-			tail = cur;
-		}
+	while(cur -> next != NULL){
+		cur = cur -> next;
 	}
-	for (int i = 0; i <= ll -> size; i++ ){
-		
-		if( curItem -> item % 2 != 0){
+
+	tail = cur;
+	cur = ll -> head;
+	
+	if(cur -> item % 2 != 0){
+		ll -> head = ll -> head ->next;
+	}
+
+	for (int i = 0; i < ll -> size; i++){
+		if( cur -> item % 2 != 0){
+			//홀수
 			perv -> next = cur -> next;
-			tail -> next = ll -> head;
-			tail = tail -> next;
+			tail -> next = cur;
+			tail = cur;
 			cur = cur -> next;
+			tail -> next = NULL;
 		}
 		else {
-			continue;
+			//짝수
+			perv = cur;
+			cur = cur -> next;
 		}
+		
 	}
 }
 
