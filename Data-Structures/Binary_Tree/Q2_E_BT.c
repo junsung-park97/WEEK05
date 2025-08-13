@@ -92,13 +92,22 @@ int main()
     return 0;
 }
 
+#define max(a, b)((a > b) ? a : b);
 //////////////////////////////////////////////////////////////////////////////////
 
-int maxHeight(BTNode *node)
-
-{
+int maxHeight(BTNode *root) {
+    // Base Case: 끝에 도달
+    if (root == NULL) {
+        return -1;  // 깊이 정보를 반환값으로 전달
+    }
     
+    int leftDepth = maxHeight(root->left);   // 왼쪽 깊이 받음
+    int rightDepth = maxHeight(root->right); // 오른쪽 깊이 받음
+    
+    // 받은 깊이에 +1 해서 위로 전달
+    return 1 + max(leftDepth, rightDepth);
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
