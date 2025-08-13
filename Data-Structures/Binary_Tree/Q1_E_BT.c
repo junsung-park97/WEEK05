@@ -116,24 +116,21 @@ int main()
 int identical(BTNode *tree1, BTNode *tree2)
 
 {
-    int identical(BTNode *tree1, BTNode *tree2)
-    {
-        // Case 1: 둘 다 NULL (빈 트리)
-        if (tree1 == NULL && tree2 == NULL) {
-            return 1;  // 구조적으로 동일
-        }
-        
-        // Case 2: 하나만 NULL (한쪽은 비어있고 한쪽은 노드가 있음)
-        if (tree1 == NULL || tree2 == NULL) {
-            return 0;  // 구조적으로 다름
-        }
-        
-        // Case 3: 둘 다 NULL이 아님
-        // 현재 노드의 값이 같고, 왼쪽 서브트리와 오른쪽 서브트리가 모두 동일해야 함
-        return (tree1->item == tree2->item) &&
-            identical(tree1->left, tree2->left) &&
-            identical(tree1->right, tree2->right);
+    // Case 1: 둘 다 NULL (빈 트리)
+    if (tree1 == NULL && tree2 == NULL) {
+        return 1;  // 구조적으로 동일
     }
+    
+    // Case 2: 하나만 NULL (한쪽은 비어있고 한쪽은 노드가 있음)
+    if (tree1 == NULL || tree2 == NULL) {
+        return 0;  // 구조적으로 다름
+    }
+    
+    // Case 3: 둘 다 NULL이 아님
+    // 현재 노드의 값이 같고, 왼쪽 서브트리와 오른쪽 서브트리가 모두 동일해야 함
+    return (tree1->item == tree2->item) &&
+        identical(tree1->left, tree2->left) &&
+        identical(tree1->right, tree2->right);
 }
 
 /////////////////////////////////////////////////////////////////////////////////
